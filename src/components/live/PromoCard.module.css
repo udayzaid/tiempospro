@@ -1,0 +1,95 @@
+.card {
+  flex: 1;
+  min-width: 220px;
+  overflow: hidden;
+  border: 1px solid #e5e0d5;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.header {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 0 8px 0 0;
+  min-height: 32px;
+}
+
+.category {
+  font-size: 13px;
+  font-weight: 800;
+  color: #111111;
+  background-color: #f5b723;
+  padding: 6px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  flex-shrink: 1;
+  margin-right: 8px;
+}
+
+/* Reemplaza hitSlop={8}: amplía el área táctil sin alterar el diseño */
+.verMasBtn::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+}
+.verMasBtn:active {
+  opacity: 0.6;
+}
+.verMas {
+  font-size: 11px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.body {
+  flex: 1;
+  flex-direction: row;
+  gap: 8px;
+  padding: 8px;
+  background-color: #ffffff;
+}
+.body:active {
+  opacity: 0.85;
+}
+
+.image {
+  width: 40%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background-color: #e5e0d5;
+  object-fit: cover;
+}
+
+.imagePlaceholder {
+  width: 40%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background-color: #f7f4ed;
+  align-items: center;
+  justify-content: center;
+}
+.imagePlaceholderText {
+  font-size: 9px;
+  color: #777777;
+  font-weight: 600;
+  text-align: center;
+}
+
+.textContent {
+  flex: 1;
+  justify-content: flex-start;
+}
+.title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 4px;
+  line-height: 16px;
+}
+.description {
+  font-size: 11px;
+  color: #777777;
+  line-height: 15px;
+}

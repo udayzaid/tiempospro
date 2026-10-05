@@ -1,0 +1,103 @@
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.modalCard {
+  width: 100%;
+  max-width: 400px;
+  max-height: 100%;
+  overflow-y: auto;
+  background-color: #faf7f0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+  color: #111111;
+  margin-bottom: 4px;
+}
+.subtitle {
+  display: block;
+  font-size: 13px;
+  color: #777777;
+  margin-bottom: 16px;
+}
+.errorText {
+  display: block;
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-size: 12px;
+}
+
+.inputGroup { margin-bottom: 12px; }
+.label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #111111;
+  margin-bottom: 4px;
+}
+.input {
+  border: 1px solid #e5e0d5;
+  background-color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.loginInfo {
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+.loginInfoText {
+  color: #777777;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.submitBtn {
+  width: 100%;
+  background-color: #f5b723;
+  padding: 11px 0;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+.submitBtn:active { opacity: 0.8; }
+.submitBtnDisabled { opacity: 0.6; }
+.submitBtnText {
+  color: #111111;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.switchContainer {
+  margin-top: 16px;
+  align-items: center;
+}
+.switchText {
+  font-size: 12px;
+  color: #777777;
+}
+.switchLink { font-weight: bold; }
+
+.closeBtn {
+  margin-top: 12px;
+  align-items: center;
+}
+.closeBtnText {
+  font-size: 12px;
+  color: #777777;
+}

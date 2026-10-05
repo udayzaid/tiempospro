@@ -1,0 +1,85 @@
+.backdrop {
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.48);
+}
+.modal {
+  width: 100%;
+  max-width: 680px;
+  max-height: 88%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e5e0d5;
+  overflow: hidden;
+}
+.header {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #e5e0d5;
+}
+.heading { flex-direction: row; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+.icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 17px;
+  background-color: #f7f4ed;
+  align-items: center;
+  justify-content: center;
+}
+.headingCopy { flex: 1; min-width: 0; }
+.title { display: block; color: #1a1a1a; font-weight: 700; font-size: 15px; }
+.subtitle { display: block; color: #777777; font-size: 11px; margin-top: 2px; }
+.closeButton { padding: 5px; margin-left: 8px; }
+.body { min-height: 220px; max-height: 520px; flex-shrink: 1; }
+.messageList {
+  padding: 8px 16px;
+  overflow-y: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.messageRow {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px solid #e5e0d5;
+}
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #f7f4ed;
+  align-items: center;
+  justify-content: center;
+}
+.avatarText { font-size: 12px; font-weight: 700; color: #4f4f4f; }
+.messageContent { flex: 1; min-width: 0; }
+.messageMeta { flex-direction: row; align-items: center; justify-content: space-between; gap: 8px; }
+.userName { flex: 1; font-size: 12px; font-weight: 700; color: #1a1a1a; }
+.date { font-size: 9px; color: #777777; }
+.messageText { display: block; font-size: 12px; line-height: 18px; color: #4f4f4f; margin-top: 3px; }
+.stateBox { flex: 1; align-items: center; justify-content: center; padding: 24px; gap: 10px; color: #d9b700; }
+.stateText { font-size: 12px; color: #777777; text-align: center; }
+.errorText { font-size: 12px; color: #c53030; text-align: center; }
+.footer {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px;
+  border-top: 1px solid #e5e0d5;
+}
+.pageInfo { flex: 1; font-size: 10px; color: #777777; }
+.pageActions { flex-direction: row; gap: 8px; }
+.pageButton {
+  padding: 8px 12px;
+  border: 1px solid #d5cebf;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+.pageButton:active:not(:disabled) { opacity: 0.8; }
+.pageButtonText { font-size: 10px; font-weight: 600; color: #4f4f4f; }
+.disabledButton { opacity: 0.4; }

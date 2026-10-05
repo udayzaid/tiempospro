@@ -1,0 +1,20 @@
+.container {
+  padding: 16px;
+  background-color: #faf7f0;
+  margin: 12px 12px 0;
+  border-radius: 8px;
+  border: 1px solid #e5e0d5;
+}
+.title {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 8px;
+}
+.body {
+  display: block;
+  font-size: 13px;
+  line-height: 20px;
+  color: #777777;
+}

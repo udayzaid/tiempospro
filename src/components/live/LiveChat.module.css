@@ -1,0 +1,194 @@
+.container {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  border: 1px solid #c8c8c8;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.header {
+  height: 42px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-bottom: 1px solid #d5d5d5;
+  padding: 0 10px;
+}
+.headerLeft {
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+}
+.headerLiveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #f5b400;
+  margin-right: 7px;
+}
+.headerText {
+  font-size: 12px;
+  font-weight: 800;
+  color: #222222;
+}
+.headerRight {
+  flex-direction: row;
+  align-items: center;
+}
+.connectedText {
+  font-size: 11px;
+  color: #555555;
+}
+
+.list {
+  flex: 1;
+  min-height: 0;
+  background-color: #ffffff;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.listContent { padding: 5px 0; }
+.emptyList {
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.messageRow {
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 5px 10px;
+  min-height: 39px;
+}
+.avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 13px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  margin-top: 1px;
+}
+.avatarText {
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+}
+.messageContent {
+  flex: 1;
+  min-width: 0;
+  flex-direction: row;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.username {
+  font-size: 11px;
+  font-weight: 800;
+  color: #333333;
+  margin-right: 7px;
+  max-width: 35%;
+}
+.messageText {
+  flex-shrink: 1;
+  font-size: 11px;
+  line-height: 16px;
+  color: #444444;
+}
+
+.statusContainer {
+  align-items: center;
+  justify-content: center;
+  padding: 20px 10px;
+  gap: 8px;
+  color: #111111;
+}
+.statusText {
+  font-size: 12px;
+  color: #888888;
+  text-align: center;
+}
+
+.noticeText {
+  display: block;
+  padding: 6px 10px;
+  background-color: #f5f5f5;
+  color: #555555;
+  font-size: 11px;
+}
+
+.emojiPanel {
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 6px 7px;
+  background-color: #ffffff;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+.emojiButton {
+  width: 34px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+}
+.emojiText { font-size: 19px; }
+
+.inputRow {
+  flex-direction: row;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 8px 10px;
+  border-top: 1px solid #d0d0d0;
+}
+.emojiToggle {
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+}
+.emojiToggleText {
+  font-size: 22px;
+  color: #555555;
+}
+.input {
+  flex: 1;
+  height: 34px;
+  background-color: #ffffff;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  padding: 0 9px;
+  font-size: 11px;
+  color: #222222;
+}
+.input::placeholder { color: #888888; }
+.inputDisabled { opacity: 0.6; }
+
+.loginMessage {
+  flex: 1;
+  height: 34px;
+  background-color: #ffffff;
+  border: 1px solid #d5d5d5;
+  border-radius: 2px;
+  justify-content: center;
+  padding: 0 10px;
+}
+.loginMessageText {
+  font-size: 11px;
+  color: #888888;
+}
+
+.sendButton {
+  width: 42px;
+  height: 36px;
+  margin-left: 6px;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5b723;
+  border-radius: 4px;
+}
+.sendButtonDisabled { opacity: 0.5; cursor: default; }
+.sendButtonText {
+  font-size: 18px;
+  font-weight: 800;
+  color: #222222;
+}

@@ -1,0 +1,296 @@
+.wrapper {
+  width: 100%;
+  background-color: #faf7f0;
+}
+
+/* ---------- NAVEGACIÓN ---------- */
+.navigationBar {
+  width: 100%;
+  height: 38px;
+  background-color: #f5b723;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.navigationScroll {
+  height: 100%;
+}
+.navigationContent {
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0;
+  min-width: 100%;
+  width: max-content;
+}
+.navigationItem {
+  min-height: 38px;
+  flex-shrink: 0;
+  padding: 0 13px;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.14);
+}
+.navigationItem:active { opacity: 0.75; }
+.navigationItem:disabled { cursor: default; }
+.navigationText {
+  color: #111111;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+}
+.menuButton {
+  min-height: 38px;
+  min-width: 44px;
+  padding: 0 8px;
+  justify-content: center;
+  align-items: center;
+}
+.menuButton:active { opacity: 0.75; }
+
+/* ---------- FILA SUPERIOR (flujo normal, sin absolute) ---------- */
+.topRow {
+  width: 100%;
+  min-height: 115px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  gap: 8px;
+  border-bottom: 1px solid #e5e0d5;
+}
+
+/* Logo del edificio (solo >= 1180px) */
+.sideColumn {
+  width: 350px;
+  flex-shrink: 0;
+  min-width: 0;
+  pointer-events: none;
+}
+.buildingLogo {
+  width: 350px;
+  height: 115px;
+  object-fit: contain;
+  display: block;
+}
+.brandFrame {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+.brandLogo {
+  width: 350px;
+  height: 115px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ---------- BOTONES ---------- */
+.authButtonsContainer {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.registerBtn,
+.loginBtn,
+.adminBtn,
+.userInfo,
+.logoutBtn {
+  height: 35px;
+  padding: 0 10px;
+  border-radius: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.registerBtn:active,
+.loginBtn:active,
+.adminBtn:active,
+.userInfo:active,
+.logoutBtn:active { opacity: 0.8; }
+
+.registerBtn { background-color: #f5b723; gap: 5px; }
+.registerBtnText { color: #111111; font-size: 12px; font-weight: 700; }
+.loginBtn { background-color: #ffffff; border: 1px solid #d9d9d9; gap: 7px; }
+.loginBtnText { color: #111111; font-size: 12px; font-weight: 500; }
+.adminBtn { background-color: #ffffff; border: 1px solid #d9d9d9; gap: 6px; }
+.adminBtnText { color: #111111; font-size: 12px; font-weight: 600; }
+.userInfo { background-color: #ffffff; border: 1px solid #d9d9d9; gap: 8px; max-width: 220px; }
+.userText { color: #111111; font-size: 12px; font-weight: 600; max-width: 160px; }
+.logoutBtn { background-color: #f5b723; gap: 6px; }
+.logoutBtnText { color: #111111; font-size: 12px; font-weight: 700; }
+
+/* ---------- TITULAR ---------- */
+.headlineBar {
+  width: 100%;
+  height: 34px;
+  background-color: #f5b723;
+  padding: 0 20px;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+.headlineText { flex: 1; color: #111111; font-size: 10px; font-weight: 800; }
+.dateText { flex-shrink: 1; color: #111111; font-size: 9px; font-weight: 700; }
+.liveStateDot { width: 8px; height: 8px; border-radius: 4px; background-color: #777777; }
+.liveStateDotActive { background-color: #e11d2e; }
+.headerSpacing { height: 8px; width: 100%; }
+
+/* ---------- MODAL DE PERFIL ---------- */
+.profileBackdrop {
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.42);
+}
+.profileModal {
+  width: 100%;
+  max-width: 380px;
+  max-height: 90%;
+  border-radius: 10px;
+  border: 1px solid #e5e0d5;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+.profileHeader {
+  flex-direction: row;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #e5e0d5;
+}
+.profileHeaderIcon {
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 19px;
+  background-color: #f7f4ed;
+  margin-right: 11px;
+}
+.profileHeaderCopy { flex: 1; }
+.profileTitle { display: block; color: #1a1a1a; font-size: 15px; font-weight: 700; }
+.profileSubtitle { display: block; color: #777777; font-size: 11px; margin-top: 3px; }
+.profileClose { padding: 5px; margin-left: 8px; }
+.profileFieldsScroller { flex-shrink: 1; overflow-y: auto; min-height: 0; }
+.profileFields { padding: 16px; gap: 12px; }
+.profileField {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #e5e0d5;
+  background-color: #faf7f0;
+}
+.profileLabel { display: block; color: #777777; font-size: 10px; font-weight: 600; margin-bottom: 5px; }
+.profileValue { display: block; color: #1a1a1a; font-size: 13px; font-weight: 600; word-break: break-word; }
+.passwordSection {
+  padding: 12px;
+  border: 1px solid #e5e0d5;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+.passwordHeading { flex-direction: row; align-items: center; gap: 8px; margin-bottom: 10px; }
+.passwordTitle { display: block; color: #1a1a1a; font-size: 12px; font-weight: 700; }
+.passwordHint { display: block; color: #777777; font-size: 10px; margin-top: 2px; }
+.passwordInput {
+  height: 38px;
+  padding: 0 10px;
+  margin-bottom: 8px;
+  border: 1px solid #d5cebf;
+  border-radius: 3px;
+  background-color: #faf7f0;
+  color: #1a1a1a;
+  font-size: 11px;
+}
+.passwordInput::placeholder { color: #777777; }
+.passwordButton {
+  min-height: 37px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 2px;
+  padding: 0 12px;
+  border-radius: 3px;
+  background-color: #f5b723;
+}
+.passwordButtonDisabled { opacity: 0.55; cursor: default; }
+.passwordButtonText { color: #111111; font-size: 10px; font-weight: 700; }
+.passwordFeedback {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 3px;
+}
+.passwordSuccess { background-color: #eaf4ec; }
+.passwordError { background-color: #fdecec; }
+.passwordFeedbackText { flex: 1; font-size: 10px; line-height: 14px; }
+.passwordSuccessText { color: #16803c; }
+.passwordErrorText { color: #c53030; }
+
+/* =========================================================
+   BREAKPOINTS (equivalen a los de useWindowDimensions)
+   ========================================================= */
+
+/* >= 1180px: logo del edificio visible; botones en columna lateral */
+@media (min-width: 1180px) {
+  .authButtonsContainer {
+    width: 350px;
+    flex-shrink: 0;
+    min-width: 0;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 80px;
+  }
+}
+
+/* < 1180px: desaparece el logo del edificio */
+@media (max-width: 1179.98px) {
+  .sideColumn { display: none; }
+  .brandFrame { align-items: flex-start; }
+}
+
+/* 560px - 1179px: botones junto al logo de marca */
+@media (min-width: 560px) and (max-width: 1179.98px) {
+  .authButtonsContainer { flex: 1; min-width: 0; }
+}
+
+/* < 1100px: navegación compacta */
+@media (max-width: 1099.98px) {
+  .navigationItem { padding: 0 9px; }
+  .navigationText { font-size: 9px; }
+}
+
+/* < 900px: los botones pasan debajo del logo */
+@media (max-width: 899.98px) {
+  .topRow {
+    min-height: 180px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .authButtonsContainer { width: 100%; justify-content: flex-end; }
+}
+
+/* < 700px: navegación móvil y sin fecha */
+@media (max-width: 699.98px) {
+  .navigationItem { padding: 0 8px; }
+  .headlineBar .dateText { display: none; }
+}
+
+/* < 560px: desaparece el logo de marca */
+@media (max-width: 559.98px) {
+  .brandFrame { display: none; }
+  .topRow {
+    min-height: 72px;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-bottom: 4px;
+  }
+}

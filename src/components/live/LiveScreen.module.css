@@ -1,0 +1,102 @@
+.screen {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+.headerViewport {
+  width: 100%;
+  min-width: 0;
+  background-color: #ffffff;
+}
+.page {
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 18px 16px 8px;
+}
+.layoutRow {
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 35px;
+  box-sizing: border-box;
+}
+.adColumn {
+  display: none;
+  width: 160px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+.contentColumn {
+  flex: 1;
+  max-width: 1280px;
+  min-width: 0;
+  align-self: stretch;
+  box-sizing: border-box;
+}
+.content {
+  width: 100%;
+  min-width: 0;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 14px;
+}
+.videoArea {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+.chatArea {
+  width: 360px;
+  min-width: 280px;
+  max-width: 360px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  align-self: stretch;
+}
+.liveBadge {
+  position: absolute;
+  z-index: 2;
+  left: 10px;
+  top: 10px;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  background-color: #e51c2a;
+  padding: 5px 9px;
+  border-radius: 3px;
+}
+.liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: #ffffff;
+}
+.liveBadgeText {
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* Anuncios laterales (>= 1180px) */
+@media (min-width: 1180px) {
+  .adColumn { display: flex; }
+}
+
+/* Móvil (< 1050px) */
+@media (max-width: 1049.98px) {
+  .layoutRow { flex-direction: column; gap: 14px; }
+  .contentColumn { width: 100%; max-width: none; align-self: stretch; }
+  .content { width: 100%; flex-direction: column; gap: 14px; }
+  .videoArea { width: 100%; flex: 1 1 auto; }
+  .chatArea {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    align-self: stretch;
+    height: 400px;
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+}

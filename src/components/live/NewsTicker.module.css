@@ -1,0 +1,25 @@
+.bar {
+  min-height: 34px;
+  padding: 0 20px;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  background-color: #f5b723;
+}
+.label {
+  color: #111111;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+.text {
+  flex: 1;
+  color: #111111;
+  font-size: 11px;
+  font-weight: 700;
+}
+.date {
+  color: #111111;
+  font-size: 10px;
+  font-weight: 700;
+}

@@ -1,0 +1,171 @@
+.container { gap: 12px; }
+.heading { flex-direction: row; align-items: center; gap: 11px; padding: 0 2px 2px; }
+.headingIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  background-color: #f7f4ed;
+  align-items: center;
+  justify-content: center;
+}
+.headingCopy { flex: 1; min-width: 0; }
+.title { display: block; color: #1a1a1a; font-size: 16px; font-weight: 700; }
+.subtitle { display: block; color: #777777; font-size: 11px; line-height: 16px; margin-top: 3px; }
+.sectionCard {
+  padding: 16px;
+  border: 1px solid #e5e0d5;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+.sectionHeading {
+  flex-direction: row;
+  align-items: center;
+  gap: 9px;
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 12px;
+}
+.sectionHeadingCopy { flex: 1; min-width: 0; }
+.sectionTitle { display: block; color: #1a1a1a; font-size: 13px; font-weight: 700; }
+.sectionSubtitle { display: block; color: #777777; font-size: 10px; line-height: 15px; margin-top: 2px; }
+.formRow { flex-direction: row; gap: 8px; }
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 0 11px;
+  border: 1px solid #d5cebf;
+  border-radius: 3px;
+  background-color: #faf7f0;
+  color: #1a1a1a;
+  font-size: 12px;
+}
+.input::placeholder { color: #777777; }
+.primaryButton {
+  min-height: 40px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 13px;
+  border-radius: 3px;
+  background-color: #f5b723;
+}
+.primaryButton:active:not(:disabled) { opacity: 0.8; }
+.primaryButtonText { color: #111111; font-size: 10px; font-weight: 700; }
+.disabled { opacity: 0.5; }
+
+.userResult {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #e5e0d5;
+  background-color: #faf7f0;
+}
+.resultAvatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 17px;
+  background-color: #f7f4ed;
+  align-items: center;
+  justify-content: center;
+}
+.resultCopy { flex: 1; min-width: 0; }
+.resultName { display: block; color: #1a1a1a; font-size: 12px; font-weight: 700; }
+.resultDetail { display: block; color: #777777; font-size: 10px; margin-top: 2px; }
+.blockButton {
+  min-height: 34px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 10px;
+  border-radius: 3px;
+  background-color: #c53030;
+}
+.blockButton:active:not(:disabled) { opacity: 0.2; }
+.blockButtonText { color: #ffffff; font-size: 10px; font-weight: 700; }
+
+.blockedHeader { flex-direction: row; align-items: flex-start; gap: 8px; }
+.refreshButton {
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e0d5;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.refreshButton:active:not(:disabled) { opacity: 0.2; }
+.refreshButton .spinnerSmall,
+.spinnerSmall { width: 16px; height: 16px; }
+.listState {
+  min-height: 64px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #d9b700;
+}
+.emptyText { color: #777777; font-size: 11px; text-align: center; }
+.blockedRow {
+  flex-direction: row;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 0;
+  border-top: 1px solid #e5e0d5;
+}
+.blockedUserIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  background-color: #f7f4ed;
+  align-items: center;
+  justify-content: center;
+}
+.blockedUsername { flex: 1; min-width: 0; color: #1a1a1a; font-size: 11px; font-weight: 600; }
+.unblockButton {
+  padding: 7px 10px;
+  border: 1px solid #d5cebf;
+  border-radius: 3px;
+}
+.unblockButton:active:not(:disabled) { opacity: 0.2; }
+.unblockButtonText { color: #4f4f4f; font-size: 10px; font-weight: 600; }
+.inlineConfirm { flex-direction: row; align-items: center; gap: 5px; }
+.confirmText { color: #4f4f4f; font-size: 9px; }
+.cancelButton {
+  padding: 6px 8px;
+  border: 1px solid #d5cebf;
+  border-radius: 3px;
+}
+.cancelButton:active:not(:disabled) { opacity: 0.2; }
+.cancelButtonText { color: #4f4f4f; font-size: 9px; font-weight: 600; }
+.confirmButton {
+  min-width: 30px;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  border-radius: 3px;
+  background-color: #c53030;
+  color: #ffffff;
+}
+.confirmButton:active:not(:disabled) { opacity: 0.2; }
+.confirmButtonText { color: #ffffff; font-size: 9px; font-weight: 700; }
+
+.feedbackBox {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 7px;
+  margin-top: 10px;
+  padding: 9px;
+  border-radius: 3px;
+}
+.feedbackSuccess { background-color: #eaf4ec; }
+.feedbackError { background-color: #fdecec; }
+.feedbackText { flex: 1; font-size: 10px; line-height: 15px; }
+.feedbackSuccessText { color: #16803c; }
+.feedbackErrorText { color: #c53030; }

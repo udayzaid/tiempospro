@@ -1,0 +1,130 @@
+:root {
+  --font-display:
+    Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+    Segoe UI Symbol, Noto Color Emoji;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
+  --font-serif: Georgia, 'Times New Roman', serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/*
+ * Defaults de <View> de React Native (vía react-native-web), con especificidad 0
+ * para que cualquier clase de un CSS Module los sobrescriba sin importar el orden.
+ */
+:where(.rn-view) {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  border: 0 solid black;
+}
+
+/* Defaults de <Text> */
+:where(.rn-text) {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #000;
+  font-size: 14px;
+}
+
+/* numberOfLines={n} -> usar style={{ '--lines': n }} */
+.rn-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--lines, 1);
+  overflow: hidden;
+}
+
+/* <Pressable>/<TouchableOpacity> -> <button> sin estilos nativos del navegador */
+:where(.rn-pressable) {
+  appearance: none;
+  background: none;
+  border: 0 solid black;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+}
+:where(.rn-pressable):disabled {
+  cursor: default;
+}
+
+/* <ActivityIndicator> */
+.rn-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: rn-spin 0.8s linear infinite;
+}
+@keyframes rn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* numberOfLines={1} */
+.rn-line-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* <TextInput> -> <input>/<textarea> con los defaults de React Native Web */
+:where(.rn-input) {
+  appearance: none;
+  background-color: transparent;
+  border: 0 solid black;
+  border-radius: 0;
+  box-sizing: border-box;
+  font: 14px system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  resize: none;
+  min-width: 0;
+}
+
+/* ScrollView horizontal sin barra visible */
+.rn-hscroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.rn-hscroll::-webkit-scrollbar {
+  display: none;
+}

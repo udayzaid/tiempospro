@@ -1,0 +1,205 @@
+.container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e5e0d5;
+  padding: 16px;
+}
+.heading { flex-direction: row; align-items: center; gap: 11px; margin-bottom: 16px; }
+.headingIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  background-color: #f7f4ed;
+  align-items: center;
+  justify-content: center;
+}
+.headingCopy { flex: 1; min-width: 0; }
+.title { display: block; color: #1a1a1a; font-size: 16px; font-weight: 700; }
+.subtitle { display: block; color: #777777; font-size: 11px; margin-top: 3px; }
+
+.tabs {
+  flex-direction: row;
+  border-bottom: 1px solid #e5e0d5;
+  margin-bottom: 16px;
+  gap: 8px;
+}
+.tab {
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 13px;
+  border-bottom: 2px solid transparent;
+}
+.tab:active { opacity: 0.2; }
+.tabActive { border-bottom-color: #d9b700; }
+.tabText { color: #777777; font-size: 12px; font-weight: 600; }
+.tabTextActive { color: #1a1a1a; }
+.tabCount {
+  color: #777777;
+  background-color: #f7f4ed;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 9px;
+  padding: 2px 6px;
+}
+
+.createCard {
+  padding: 12px;
+  border: 1px solid #e5e0d5;
+  border-radius: 6px;
+  background-color: #faf7f0;
+  margin-bottom: 16px;
+}
+.createHeading { flex-direction: row; align-items: center; gap: 9px; margin-bottom: 10px; }
+.createIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  background-color: #fff1c2;
+  align-items: center;
+  justify-content: center;
+}
+.createTitle { display: block; color: #1a1a1a; font-size: 12px; font-weight: 700; }
+.createHelp { display: block; color: #777777; font-size: 10px; margin-top: 2px; }
+.formRow { flex-direction: row; gap: 8px; }
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  border: 1px solid #d5cebf;
+  border-radius: 3px;
+  padding: 0 11px;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  font-size: 12px;
+}
+.input::placeholder { color: #777777; }
+.submitButton {
+  min-width: 98px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 12px;
+  border-radius: 3px;
+  background-color: #f5b723;
+}
+.submitButton:active:not(:disabled) { opacity: 0.8; }
+.submitLoading { opacity: 0.8; }
+.submitText { color: #111111; font-size: 11px; font-weight: 700; }
+.disabled { opacity: 0.45; }
+.notice { display: block; font-size: 11px; margin-top: 9px; }
+.successNotice { color: #16803c; }
+.errorNotice { color: #c53030; }
+
+.listHeader { flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.listTitle { display: block; color: #1a1a1a; font-size: 13px; font-weight: 700; }
+.listSubtitle { display: block; color: #777777; font-size: 10px; margin-top: 3px; }
+.refreshButton {
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e0d5;
+  border-radius: 3px;
+}
+.refreshButton:active:not(:disabled) { opacity: 0.2; }
+.spinnerSmall { width: 16px; height: 16px; }
+
+.itemRow {
+  flex-direction: row;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 0;
+  border-bottom: 1px solid #e5e0d5;
+}
+.thumbnail {
+  width: 68px;
+  height: 50px;
+  border-radius: 3px;
+  background-color: #f7f4ed;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+.thumbnailPlaceholder {
+  width: 68px;
+  height: 50px;
+  border-radius: 3px;
+  background-color: #f7f4ed;
+  align-items: center;
+  justify-content: center;
+}
+.itemCopy { flex: 1; min-width: 0; }
+.itemTitle { display: block; color: #1a1a1a; font-size: 12px; font-weight: 700; }
+.itemDescription { display: block; color: #4f4f4f; font-size: 10px; margin-top: 3px; }
+.itemMeta { display: block; color: #777777; font-size: 9px; margin-top: 3px; }
+.itemActions { flex-direction: row; gap: 6px; }
+.openButton,
+.deleteButton {
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+.openButton { border: 1px solid #e5e0d5; }
+.deleteButton { border: 1px solid #e9c7c7; background-color: #fff8f8; color: #c53030; }
+.openButton:active:not(:disabled),
+.deleteButton:active:not(:disabled) { opacity: 0.2; }
+.deleteButton .spinnerSmall { width: 16px; height: 16px; }
+
+.deleteConfirmation {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  background-color: #fff8f8;
+  border: 1px solid #e9c7c7;
+}
+.confirmationText { flex: 1; min-width: 140px; color: #4f4f4f; font-size: 10px; }
+.confirmationActions { flex-direction: row; align-items: center; gap: 7px; }
+.cancelDeleteButton { padding: 6px 9px; border-radius: 3px; border: 1px solid #d5cebf; }
+.cancelDeleteText { color: #4f4f4f; font-size: 10px; font-weight: 600; }
+.confirmDeleteButton { padding: 6px 9px; border-radius: 3px; background-color: #c53030; }
+.cancelDeleteButton:active:not(:disabled),
+.confirmDeleteButton:active:not(:disabled) { opacity: 0.2; }
+.confirmDeleteText { color: #ffffff; font-size: 10px; font-weight: 700; }
+
+.stateBox {
+  min-height: 110px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 18px;
+  color: #d9b700;
+}
+.stateText { color: #777777; font-size: 11px; text-align: center; }
+.stateError { color: #c53030; }
+.emptyText { display: block; color: #777777; text-align: center; font-size: 11px; padding: 24px 0; }
+.retryButton { padding: 7px 12px; border-radius: 3px; border: 1px solid #d5cebf; }
+.retryButton:active { opacity: 0.2; }
+.retryText { color: #4f4f4f; font-size: 10px; font-weight: 600; }
+
+.pagination {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-top: 13px;
+  margin-top: 3px;
+}
+.paginationInfo { color: #777777; font-size: 10px; }
+.paginationActions { flex-direction: row; gap: 7px; }
+.pageButton {
+  padding: 7px 11px;
+  border-radius: 3px;
+  border: 1px solid #d5cebf;
+  background-color: #ffffff;
+}
+.pageButton:active:not(:disabled) { opacity: 0.2; }
+.pageButtonText { color: #4f4f4f; font-size: 10px; font-weight: 600; }

@@ -1,0 +1,7 @@
+Coloca aquí las imágenes del proyecto original (carpeta "imagenes"):
+
+  logo 2.1.png     -> logo del edificio (LiveHeader, pantalla >= 1180px)
+  logo 1 (1).png   -> logo de marca (LiveHeader y /auth/callback)
+
+Los nombres deben coincidir exactamente. El código ya apunta a /imagenes/<nombre>
+y reserva el tamaño (350x115) para que el diseño no se mueva mientras no existan.

@@ -1,0 +1,61 @@
+.container {
+  width: 100%;
+  padding: 6px 8px;
+}
+.contentRow {
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+}
+.cardsArea {
+  flex: 1;
+  min-width: 0;
+}
+/* Ventana: los cards pueden ser más anchos, solo se ven los visibles. */
+.viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+/* Fila que se mueve (reemplaza Animated.timing de 450 ms). */
+.cardsTrack {
+  flex-direction: row;
+  align-items: stretch;
+  transition: transform 450ms ease;
+  will-change: transform;
+}
+.loaderContainer {
+  height: 179px;
+  justify-content: center;
+  align-items: center;
+  color: #f5b723;
+}
+.loaderContainer .spinnerLarge {
+  width: 36px;
+  height: 36px;
+  border-width: 3px;
+}
+
+.overlayArrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.96);
+  border: 1px solid #e5e0d5;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+.overlayArrow:active { background-color: #ffffff; }
+.overlayArrowLeft { left: 6px; }
+.overlayArrowRight { right: 6px; }
+.overlayArrowText {
+  font-size: 27px;
+  line-height: 29px;
+  font-weight: 600;
+  color: #111111;
+}

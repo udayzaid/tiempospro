@@ -1,0 +1,89 @@
+.container { margin: 16px 0; }
+
+.sectionHeader {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  margin-bottom: 12px;
+}
+.headerTitleGroup {
+  flex-direction: row;
+  align-items: center;
+  flex-shrink: 1;
+  min-width: 0;
+}
+.tiktokIcon { margin-right: 8px; flex-shrink: 0; }
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 900;
+  color: #111;
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+.headerDivider {
+  width: 1px;
+  height: 18px;
+  background-color: #cfcfcf;
+  margin: 0 10px;
+}
+.sectionSubtitle {
+  font-size: 13px;
+  color: #555;
+  font-weight: 500;
+  flex-shrink: 1;
+}
+.viewAllButton { margin-left: 12px; flex-shrink: 0; }
+.viewAllButton:active { opacity: 0.55; }
+.viewAll {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+}
+
+.listViewport { position: relative; }
+.list {
+  display: flex;
+  flex-direction: row;
+  padding-left: 16px;
+  padding-right: 4px;
+  width: 100%;
+}
+.footerLoader {
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 260px;
+  color: #ff004f;
+}
+
+.overlayArrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.96);
+  border: 1px solid #d9d9d9;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+.overlayArrow:active { background-color: #f5b723; }
+.overlayArrowLeft { left: 6px; }
+.overlayArrowRight { right: 6px; }
+.overlayArrowText {
+  font-size: 27px;
+  line-height: 29px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.centerContainer {
+  height: 180px;
+  justify-content: center;
+  align-items: center;
+  color: #ff004f;
+}
