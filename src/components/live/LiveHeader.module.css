@@ -239,13 +239,15 @@
 /* >= 1180px: logo del edificio visible; botones en columna lateral */
 @media (min-width: 1180px) {
   .authButtonsContainer {
-    width: 350px;
+    width: 410px;
     flex-shrink: 0;
     min-width: 0;
     justify-content: flex-end;
     align-items: center;
+    flex-wrap: nowrap;
     padding-top: 80px;
   }
+
 }
 
 /* < 1180px: desaparece el logo del edificio */

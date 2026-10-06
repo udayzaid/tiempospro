@@ -528,39 +528,25 @@ export const api = {
   },
 
   // 6. GET /Noticias -> Obtener noticias paginadas
-  getNoticias: async (pageIndex = 1, pageSize = 4): Promise<PagedResponse<NoticiaItem> | null> => {
-    try {
-      // 1. Probamos primero la ruta base /Noticias (patrón usado en /Stream y /SingIn)
-      let res = await fetch(
-        `${BASE_URL}/Noticias?PageIndex=${pageIndex}&PageSize=${pageSize}`,
-        {
-          ...fetchOptions(false),
-          method: 'GET',
-        }
-      );
-
-      // 2. Si responde 404, probamos el fallback /api/Noticias
-      if (res.status === 404) {
-        res = await fetch(
-          `${BASE_URL}/api/Noticia?PageIndex=${pageIndex}&PageSize=${pageSize}`,
-          {
-            ...fetchOptions(false),
-            method: 'GET',
-          }
-        );
+ getNoticias: async (pageIndex = 1, pageSize = 4): Promise<PagedResponse<NoticiaItem> | null> => {
+  try {
+    const res = await fetch(
+      `${BASE_URL}/api/Noticia?PageIndex=${pageIndex}&PageSize=${pageSize}`,
+      {
+        ...fetchOptions(false),
+        method: 'GET',
       }
+    );
 
-      if (!res.ok) {
-        throw new Error(`Error obteniendo noticias (${res.status})`);
-      }
-
-      const data = await res.json();
-      return data as PagedResponse<NoticiaItem>;
-    } catch (error) {
-      console.error('Error en getNoticias:', error);
-      return null;
+    if (!res.ok) {
+      throw new Error(`Error obteniendo noticias (${res.status})`);
     }
 
-
-  },
+    const data = await res.json();
+    return data as PagedResponse<NoticiaItem>;
+  } catch (error) {
+    console.error('Error en getNoticias:', error);
+    return null;
+  }
+},
 };
