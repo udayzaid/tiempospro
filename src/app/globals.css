@@ -1,4 +1,5 @@
 :root {
+  /* Tipografía */
   --font-display:
     Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
     Segoe UI Symbol, Noto Color Emoji;
@@ -6,7 +7,50 @@
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
   --font-serif: Georgia, 'Times New Roman', serif;
+
+  /* Colores de identidad */
+  --color-primary: #F5B723;
+  --color-primary-light: #F5D72B;
+  --color-primary-dark: #D9B700;
+
+  /* Fondos */
+  --color-background: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-soft: #F7F4ED;
+  --color-off-white: #FAF7F0;
+
+  /* Texto */
+  --color-black: #111111;
+  --color-text: #1A1A1A;
+  --color-text-secondary: #4F4F4F;
+  --color-text-muted: #777777;
+  --color-white: #FFFFFF;
+
+  /* Estados */
+  --color-live: #E11D2E;
+  --color-success: #16803C;
+  --color-warning: #B7791F;
+  --color-error: #C53030;
+  --color-info: #2563EB;
+
+  /* Bordes */
+  --color-border: #E5E0D5;
+  --color-border-strong: #D5CEBF;
+
+  /* Espaciado estándar */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+
+  /* Radios estándar */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
 }
+
 
 html,
 body {

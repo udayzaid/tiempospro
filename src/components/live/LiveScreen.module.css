@@ -1,11 +1,11 @@
 .screen {
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: var(--color-white);
 }
 .headerViewport {
   width: 100%;
   min-width: 0;
-  background-color: #ffffff;
+  background-color: var(--color-white);
 }
 .page {
   width: 100%;
@@ -70,10 +70,10 @@
   width: 6px;
   height: 6px;
   border-radius: 3px;
-  background-color: #ffffff;
+  background-color: var(--color-white);
 }
 .liveBadgeText {
-  color: #ffffff;
+  color: var(--color-white);
   font-size: 10px;
   font-weight: 800;
 }

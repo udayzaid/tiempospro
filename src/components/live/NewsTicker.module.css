@@ -4,22 +4,22 @@
   flex-direction: row;
   align-items: center;
   gap: 12px;
-  background-color: #f5b723;
+  background-color: var(--color-primary);
 }
 .label {
-  color: #111111;
+  color: var(--color-black);
   font-size: 10px;
   font-weight: 900;
   letter-spacing: 0.5px;
 }
 .text {
   flex: 1;
-  color: #111111;
+  color: var(--color-black);
   font-size: 11px;
   font-weight: 700;
 }
 .date {
-  color: #111111;
+  color: var(--color-black);
   font-size: 10px;
   font-weight: 700;
 }

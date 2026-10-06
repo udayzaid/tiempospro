@@ -17,7 +17,7 @@
 .sectionTitle {
   font-size: 18px;
   font-weight: 900;
-  color: #111;
+  color: var(--color-black);
   letter-spacing: 0.2px;
   margin: 0;
 }
@@ -38,7 +38,7 @@
 .viewAll {
   font-size: 13px;
   font-weight: 700;
-  color: #111;
+  color: var(--color-black);
 }
 
 .listViewport { position: relative; }
@@ -71,14 +71,14 @@
   z-index: 20;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
-.overlayArrow:active { background-color: #f5b723; }
+.overlayArrow:active { background-color: var(--color-primary); }
 .overlayArrowLeft { left: 6px; }
 .overlayArrowRight { right: 6px; }
 .overlayArrowText {
   font-size: 27px;
   line-height: 29px;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--color-text);
 }
 
 .centerContainer {

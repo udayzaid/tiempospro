@@ -9,7 +9,7 @@
   max-width: 400px;
   max-height: 100%;
   overflow-y: auto;
-  background-color: #faf7f0;
+  background-color: var(--color-off-white);
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
@@ -19,13 +19,13 @@
   display: block;
   font-size: 22px;
   font-weight: bold;
-  color: #111111;
+  color: var(--color-black);
   margin-bottom: 4px;
 }
 .subtitle {
   display: block;
   font-size: 13px;
-  color: #777777;
+  color: var(--color-text-muted);
   margin-bottom: 16px;
 }
 .errorText {
@@ -43,12 +43,12 @@
   display: block;
   font-size: 12px;
   font-weight: 600;
-  color: #111111;
+  color: var(--color-black);
   margin-bottom: 4px;
 }
 .input {
-  border: 1px solid #e5e0d5;
-  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
   padding: 8px 12px;
   border-radius: 6px;
   font-size: 14px;
@@ -61,14 +61,14 @@
   margin-bottom: 8px;
 }
 .loginInfoText {
-  color: #777777;
+  color: var(--color-text-muted);
   font-size: 12px;
   line-height: 18px;
 }
 
 .submitBtn {
   width: 100%;
-  background-color: #f5b723;
+  background-color: var(--color-primary);
   padding: 11px 0;
   border-radius: 6px;
   align-items: center;
@@ -78,7 +78,7 @@
 .submitBtn:active { opacity: 0.8; }
 .submitBtnDisabled { opacity: 0.6; }
 .submitBtnText {
-  color: #111111;
+  color: var(--color-black);
   font-weight: bold;
   font-size: 14px;
 }
@@ -89,7 +89,7 @@
 }
 .switchText {
   font-size: 12px;
-  color: #777777;
+  color: var(--color-text-muted);
 }
 .switchLink { font-weight: bold; }
 
@@ -99,5 +99,5 @@
 }
 .closeBtnText {
   font-size: 12px;
-  color: #777777;
+  color: var(--color-text-muted);
 }

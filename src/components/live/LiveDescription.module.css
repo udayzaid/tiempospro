@@ -1,20 +1,20 @@
 .container {
   padding: 16px;
-  background-color: #faf7f0;
+  background-color: var(--color-off-white);
   margin: 12px 12px 0;
   border-radius: 8px;
-  border: 1px solid #e5e0d5;
+  border: 1px solid var(--color-border);
 }
 .title {
   display: block;
   font-size: 16px;
   font-weight: 700;
-  color: #111111;
+  color: var(--color-black);
   margin: 0 0 8px;
 }
 .body {
   display: block;
   font-size: 13px;
   line-height: 20px;
-  color: #777777;
+  color: var(--color-text-muted);
 }

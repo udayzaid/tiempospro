@@ -1,13 +1,13 @@
 .wrapper {
   width: 100%;
-  background-color: #faf7f0;
+  background-color: var(--color-off-white);
 }
 
 /* ---------- NAVEGACIÓN ---------- */
 .navigationBar {
   width: 100%;
   height: 38px;
-  background-color: #f5b723;
+  background-color: var(--color-primary);
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 .navigationScroll {
@@ -33,7 +33,7 @@
 .navigationItem:active { opacity: 0.75; }
 .navigationItem:disabled { cursor: default; }
 .navigationText {
-  color: #111111;
+  color: var(--color-black);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.1px;
@@ -57,7 +57,7 @@
   justify-content: space-between;
   padding: 8px 12px;
   gap: 8px;
-  border-bottom: 1px solid #e5e0d5;
+  border-bottom: 1px solid var(--color-border);
 }
 
 /* Logo del edificio (solo >= 1180px) */
@@ -113,31 +113,31 @@
 .userInfo:active,
 .logoutBtn:active { opacity: 0.8; }
 
-.registerBtn { background-color: #f5b723; gap: 5px; }
-.registerBtnText { color: #111111; font-size: 12px; font-weight: 700; }
-.loginBtn { background-color: #ffffff; border: 1px solid #d9d9d9; gap: 7px; }
-.loginBtnText { color: #111111; font-size: 12px; font-weight: 500; }
-.adminBtn { background-color: #ffffff; border: 1px solid #d9d9d9; gap: 6px; }
-.adminBtnText { color: #111111; font-size: 12px; font-weight: 600; }
-.userInfo { background-color: #ffffff; border: 1px solid #d9d9d9; gap: 8px; max-width: 220px; }
-.userText { color: #111111; font-size: 12px; font-weight: 600; max-width: 160px; }
-.logoutBtn { background-color: #f5b723; gap: 6px; }
-.logoutBtnText { color: #111111; font-size: 12px; font-weight: 700; }
+.registerBtn { background-color: var(--color-primary); gap: 5px; }
+.registerBtnText { color: var(--color-black); font-size: 12px; font-weight: 700; }
+.loginBtn { background-color: var(--color-white); border: 1px solid #d9d9d9; gap: 7px; }
+.loginBtnText { color: var(--color-black); font-size: 12px; font-weight: 500; }
+.adminBtn { background-color: var(--color-white); border: 1px solid #d9d9d9; gap: 6px; }
+.adminBtnText { color: var(--color-black); font-size: 12px; font-weight: 600; }
+.userInfo { background-color: var(--color-white); border: 1px solid #d9d9d9; gap: 8px; max-width: 220px; }
+.userText { color: var(--color-black); font-size: 12px; font-weight: 600; max-width: 160px; }
+.logoutBtn { background-color: var(--color-primary); gap: 6px; }
+.logoutBtnText { color: var(--color-black); font-size: 12px; font-weight: 700; }
 
 /* ---------- TITULAR ---------- */
 .headlineBar {
   width: 100%;
   height: 34px;
-  background-color: #f5b723;
+  background-color: var(--color-primary);
   padding: 0 20px;
   flex-direction: row;
   align-items: center;
   gap: 12px;
 }
-.headlineText { flex: 1; color: #111111; font-size: 10px; font-weight: 800; }
-.dateText { flex-shrink: 1; color: #111111; font-size: 9px; font-weight: 700; }
-.liveStateDot { width: 8px; height: 8px; border-radius: 4px; background-color: #777777; }
-.liveStateDotActive { background-color: #e11d2e; }
+.headlineText { flex: 1; color: var(--color-black); font-size: 10px; font-weight: 800; }
+.dateText { flex-shrink: 1; color: var(--color-black); font-size: 9px; font-weight: 700; }
+.liveStateDot { width: 8px; height: 8px; border-radius: 4px; background-color: var(--color-text-muted); }
+.liveStateDotActive { background-color: var(--color-live); }
 .headerSpacing { height: 8px; width: 100%; }
 
 /* ---------- MODAL DE PERFIL ---------- */
@@ -152,15 +152,15 @@
   max-width: 380px;
   max-height: 90%;
   border-radius: 10px;
-  border: 1px solid #e5e0d5;
-  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
   overflow: hidden;
 }
 .profileHeader {
   flex-direction: row;
   align-items: center;
   padding: 16px;
-  border-bottom: 1px solid #e5e0d5;
+  border-bottom: 1px solid var(--color-border);
 }
 .profileHeaderIcon {
   width: 38px;
@@ -168,43 +168,43 @@
   align-items: center;
   justify-content: center;
   border-radius: 19px;
-  background-color: #f7f4ed;
+  background-color: var(--color-surface-soft);
   margin-right: 11px;
 }
 .profileHeaderCopy { flex: 1; }
-.profileTitle { display: block; color: #1a1a1a; font-size: 15px; font-weight: 700; }
-.profileSubtitle { display: block; color: #777777; font-size: 11px; margin-top: 3px; }
+.profileTitle { display: block; color: var(--color-text); font-size: 15px; font-weight: 700; }
+.profileSubtitle { display: block; color: var(--color-text-muted); font-size: 11px; margin-top: 3px; }
 .profileClose { padding: 5px; margin-left: 8px; }
 .profileFieldsScroller { flex-shrink: 1; overflow-y: auto; min-height: 0; }
 .profileFields { padding: 16px; gap: 12px; }
 .profileField {
   padding: 12px;
   border-radius: 6px;
-  border: 1px solid #e5e0d5;
-  background-color: #faf7f0;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-off-white);
 }
-.profileLabel { display: block; color: #777777; font-size: 10px; font-weight: 600; margin-bottom: 5px; }
-.profileValue { display: block; color: #1a1a1a; font-size: 13px; font-weight: 600; word-break: break-word; }
+.profileLabel { display: block; color: var(--color-text-muted); font-size: 10px; font-weight: 600; margin-bottom: 5px; }
+.profileValue { display: block; color: var(--color-text); font-size: 13px; font-weight: 600; word-break: break-word; }
 .passwordSection {
   padding: 12px;
-  border: 1px solid #e5e0d5;
+  border: 1px solid var(--color-border);
   border-radius: 6px;
-  background-color: #ffffff;
+  background-color: var(--color-white);
 }
 .passwordHeading { flex-direction: row; align-items: center; gap: 8px; margin-bottom: 10px; }
-.passwordTitle { display: block; color: #1a1a1a; font-size: 12px; font-weight: 700; }
-.passwordHint { display: block; color: #777777; font-size: 10px; margin-top: 2px; }
+.passwordTitle { display: block; color: var(--color-text); font-size: 12px; font-weight: 700; }
+.passwordHint { display: block; color: var(--color-text-muted); font-size: 10px; margin-top: 2px; }
 .passwordInput {
   height: 38px;
   padding: 0 10px;
   margin-bottom: 8px;
-  border: 1px solid #d5cebf;
+  border: 1px solid var(--color-border-strong);
   border-radius: 3px;
-  background-color: #faf7f0;
-  color: #1a1a1a;
+  background-color: var(--color-off-white);
+  color: var(--color-text);
   font-size: 11px;
 }
-.passwordInput::placeholder { color: #777777; }
+.passwordInput::placeholder { color: var(--color-text-muted); }
 .passwordButton {
   min-height: 37px;
   flex-direction: row;
@@ -214,10 +214,10 @@
   margin-top: 2px;
   padding: 0 12px;
   border-radius: 3px;
-  background-color: #f5b723;
+  background-color: var(--color-primary);
 }
 .passwordButtonDisabled { opacity: 0.55; cursor: default; }
-.passwordButtonText { color: #111111; font-size: 10px; font-weight: 700; }
+.passwordButtonText { color: var(--color-black); font-size: 10px; font-weight: 700; }
 .passwordFeedback {
   flex-direction: row;
   align-items: flex-start;
@@ -229,8 +229,8 @@
 .passwordSuccess { background-color: #eaf4ec; }
 .passwordError { background-color: #fdecec; }
 .passwordFeedbackText { flex: 1; font-size: 10px; line-height: 14px; }
-.passwordSuccessText { color: #16803c; }
-.passwordErrorText { color: #c53030; }
+.passwordSuccessText { color: var(--color-success); }
+.passwordErrorText { color: var(--color-error); }
 
 /* =========================================================
    BREAKPOINTS (equivalen a los de useWindowDimensions)

@@ -28,7 +28,7 @@
   height: 179px;
   justify-content: center;
   align-items: center;
-  color: #f5b723;
+  color: var(--color-primary);
 }
 .loaderContainer .spinnerLarge {
   width: 36px;
@@ -44,18 +44,18 @@
   height: 36px;
   border-radius: 18px;
   background-color: rgba(255, 255, 255, 0.96);
-  border: 1px solid #e5e0d5;
+  border: 1px solid var(--color-border);
   justify-content: center;
   align-items: center;
   z-index: 20;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
-.overlayArrow:active { background-color: #ffffff; }
+.overlayArrow:active { background-color: var(--color-white); }
 .overlayArrowLeft { left: 6px; }
 .overlayArrowRight { right: 6px; }
 .overlayArrowText {
   font-size: 27px;
   line-height: 29px;
   font-weight: 600;
-  color: #111111;
+  color: var(--color-black);
 }

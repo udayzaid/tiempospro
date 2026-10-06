@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  background-color: #f5b723;
+  background-color: var(--color-primary);
   padding: 10px 0 0;
 }
 
@@ -28,13 +28,13 @@
   display: block;
   font-size: 14px;
   font-weight: 700;
-  color: #111111;
+  color: var(--color-black);
   margin-bottom: 6px;
 }
 .columnLink {
   display: block;
   font-size: 12px;
-  color: #111111;
+  color: var(--color-black);
   opacity: 0.8;
   margin-bottom: 4px;
   text-decoration: none;
@@ -55,7 +55,7 @@
   width: 28px;
   height: 28px;
   border-radius: 14px;
-  background-color: #111111;
+  background-color: var(--color-black);
   align-items: center;
   justify-content: center;
 }
@@ -70,12 +70,12 @@
 }
 .copyright {
   font-size: 11px;
-  color: #ffffff;
+  color: var(--color-white);
   text-align: center;
 }
 .terms {
   font-size: 11px;
-  color: #ffffff;
+  color: var(--color-white);
   text-decoration: underline;
   text-align: center;
 }
