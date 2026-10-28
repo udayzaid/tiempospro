@@ -89,7 +89,6 @@ export function AuthProvider({
 
   const refreshProfile = useCallback(async (): Promise<Profile | null> => {
     if (refreshPromiseRef.current) {
-      console.info('[Auth] Reutilizando comprobación de perfil en curso.');
       return refreshPromiseRef.current;
     }
 
@@ -100,33 +99,20 @@ export function AuthProvider({
         const response = await getProfile();
 
         if (response.status === 401) {
-          console.info(
-            '[Auth] No existe una sesión autenticada.'
-          );
           setProfile(null);
           return null;
         }
 
         if (!response.ok) {
-          console.error(
-            '[Auth] Error obteniendo perfil:',
-            response.status,
-            response.statusText
-          );
           setProfile(null);
           return null;
         }
 
         const data = await response.json() as Profile;
 
-        console.info('[Auth] Perfil autenticado:', data);
         setProfile(data);
         return data;
       } catch (error) {
-        console.error(
-          '[Auth] Error actualizando perfil:',
-          error
-        );
 
         setProfile(null);
         return null;
@@ -143,16 +129,10 @@ export function AuthProvider({
   const logout = async () => {
     try {
       await logoutService();
-    } catch (error) {
-      console.error(
-        '[Auth] Error al cerrar sesión:',
-        error
-      );
+    } catch {
     } finally {
       setProfile(null);
       setLoading(false);
-
-      console.info('[Auth] Sesión local cerrada.');
     }
   };
 
