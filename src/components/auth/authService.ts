@@ -55,16 +55,6 @@ export async function startLogin(): Promise<void> {
   const authorizeUrl =
     `${AUTHORIZE_ENDPOINT}?${params.toString()}`;
 
-  console.info('[OAuth] Iniciando autorización:', {
-    authorizeEndpoint: AUTHORIZE_ENDPOINT,
-    clientId: CLIENT_ID,
-    redirectUri,
-    responseType: 'code',
-    scope: SCOPES,
-    codeChallengeMethod: 'S256',
-    state,
-  });
-
   window.location.href = authorizeUrl;
 }
 
@@ -87,13 +77,6 @@ export async function exchangeCodeForTokens(
   });
 
   if (!response.ok) {
-    const errorBody = await response.text().catch(() => '');
-
-    console.error(
-      'Error al intercambiar el código:',
-      errorBody
-    );
-
     throw new Error(
       'No se pudo completar el inicio de sesión.'
     );
@@ -146,12 +129,6 @@ export async function logout(): Promise<void> {
       }),
     });
 
-    console.info(
-      '[Auth] Logout:',
-      response.status,
-      response.ok
-    );
-  } catch (err) {
-    console.error('[Auth] Error en logout:', err);
+  } catch {
   }
 }
