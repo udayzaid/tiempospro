@@ -58,7 +58,7 @@ export function LiveScreen() {
     try {
       await startLogin();
     } catch (err: any) {
-      console.error('Error iniciando sesión:', err?.message || err);
+
     }
   };
 
