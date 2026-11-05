@@ -47,7 +47,7 @@ export function PromoCard(props: PromoCardProps) {
       try {
         window.open(targetUrl, '_blank', 'noopener,noreferrer');
       } catch (err) {
-        console.error('Error al abrir la URL:', err);
+
       }
     }
   };
