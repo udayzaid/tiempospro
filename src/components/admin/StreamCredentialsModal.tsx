@@ -34,7 +34,7 @@ export function StreamCredentialsModal({ visible, credentials, onClose }: Props)
     try {
       await navigator.clipboard.writeText(value);
     } catch (error) {
-      console.error('No se pudo copiar al portapapeles:', error);
+
       return;
     }
     setCopiedKey(key);
