@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "standalone",
   poweredByHeader: false,
+  devIndicators: false,
   images: {
     // Las imágenes de noticias, anuncios y miniaturas vienen de dominios externos.
     // Restringir los dominios tras identificar todos los hosts legítimos utilizados.
