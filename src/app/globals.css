@@ -129,3 +129,18 @@ body {
 .rn-hscroll::-webkit-scrollbar {
   display: none;
 }
+
+
+/* Oculta visualmente la barra del desplazamiento de la página,
+   pero conserva el scroll con rueda, teclado y touch. */
+html,
+body {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
