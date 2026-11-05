@@ -12,58 +12,6 @@ import s from './page.module.css';
 const BUILDING_LOGO = '/imagenes/logo%202.1.png';
 const BRAND_LOGO = '/imagenes/logo%201%20(1).png';
 
-function extractRole(profile: any): string {
-  const directRole = profile?.rol ?? profile?.role ?? profile?.Rol ?? profile?.Role;
-
-  if (typeof directRole === 'string') {
-    return directRole.trim();
-  }
-
-  if (Array.isArray(directRole)) {
-    const stringRole = directRole.find((value) => typeof value === 'string');
-
-    if (typeof stringRole === 'string') {
-      return stringRole.trim();
-    }
-
-    const roleObject = directRole.find((value) => value !== null && typeof value === 'object');
-
-    if (roleObject) {
-      const objectRole = roleObject.role ?? roleObject.Role ?? roleObject.name ?? roleObject.Name;
-
-      if (typeof objectRole === 'string') {
-        return objectRole.trim();
-      }
-    }
-  }
-
-  const roles = profile?.roles ?? profile?.Roles;
-
-  if (typeof roles === 'string') {
-    return roles.trim();
-  }
-
-  if (Array.isArray(roles)) {
-    const stringRole = roles.find((value) => typeof value === 'string');
-
-    if (typeof stringRole === 'string') {
-      return stringRole.trim();
-    }
-
-    const roleObject = roles.find((value) => value !== null && typeof value === 'object');
-
-    if (roleObject) {
-      const objectRole = roleObject.role ?? roleObject.Role ?? roleObject.name ?? roleObject.Name;
-
-      if (typeof objectRole === 'string') {
-        return objectRole.trim();
-      }
-    }
-  }
-
-  return '';
-}
-
 export default function AuthCallbackScreen() {
   const router = useRouter();
   const { refreshProfile } = useAuth();
@@ -82,7 +30,7 @@ export default function AuthCallbackScreen() {
       const errorParam = urlParams.get('error');
 
       if (errorParam) {
-        setError(`Error de autenticación: ${errorParam}`);
+        setError('No se pudo completar la autenticación. Intenta nuevamente.');
         return;
       }
 
@@ -109,7 +57,7 @@ export default function AuthCallbackScreen() {
       const processingCode = sessionStorage.getItem(processingKey);
 
       if (processingCode === code) {
-        console.info('[OAuth] Callback duplicado ignorado para el mismo code.');
+
         return;
       }
 
@@ -118,7 +66,7 @@ export default function AuthCallbackScreen() {
       try {
         await exchangeCodeForTokens(code, codeVerifier);
 
-        console.info('[OAuth] Exchange completado correctamente.');
+
 
         sessionStorage.removeItem('pkce_code_verifier');
         sessionStorage.removeItem('oauth_state');
@@ -130,17 +78,11 @@ export default function AuthCallbackScreen() {
           throw new Error('No se pudo verificar el perfil autenticado.');
         }
 
-        const role = extractRole(profile);
-
-        console.info('[OAuth] Rol detectado:', role);
-
         // Después de autenticarse, todos vuelven a la página pública.
         // El botón Administrar del header llevará al dashboard cuando corresponda.
-        console.info('[OAuth] Autenticación completada → página principal');
         router.replace('/');
-      } catch (err: any) {
-        console.error('[OAuth] Error al completar autenticación:', err);
-        setError(err?.message || 'Error al completar el inicio de sesión.');
+      } catch {
+        setError('No se pudo completar el inicio de sesión. Intenta nuevamente.');
       }
     }
 
