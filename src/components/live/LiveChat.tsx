@@ -150,7 +150,7 @@ export function LiveChat() {
       } catch (error) {
         if (!mounted) return;
 
-        console.error('[Chat] No se pudo cargar el historial:', error);
+
         setHistoryError(true);
         setMessages([]);
       } finally {
@@ -209,7 +209,7 @@ export function LiveChat() {
     if (!text) return;
 
     if (!liveInfo?.isLive || !isAuthenticated || !connection || !connected) {
-      console.warn('[Chat] No hay un Live activo o no existe una sesión/conexión activa.');
+
       return;
     }
 
@@ -217,7 +217,7 @@ export function LiveChat() {
       await connection.invoke('SendMessage', text);
       setDraft('');
     } catch (error) {
-      console.error('[Chat] Error enviando mensaje:', error);
+
     }
   }
 
