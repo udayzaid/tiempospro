@@ -302,7 +302,7 @@ export function ContentManagementPanel() {
     try {
       window.open(url, '_blank', 'noopener,noreferrer');
     } catch (error) {
-      console.error('No se pudo abrir el contenido:', error);
+
     }
   };
 
