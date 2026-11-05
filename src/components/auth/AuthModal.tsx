@@ -64,7 +64,7 @@ export function AuthModal({ visible, onClose, initialRegister = false }: AuthMod
       try {
         await startLogin();
       } catch (err: any) {
-        setErrorMessage(err?.message || 'No se pudo iniciar el proceso de autenticación.');
+        setErrorMessage('No se pudo iniciar el proceso de autenticación.');
         setLoading(false);
       }
 
@@ -103,13 +103,13 @@ export function AuthModal({ visible, onClose, initialRegister = false }: AuthMod
 
       try {
         await startLogin();
-      } catch (loginError: any) {
-        console.error('Error iniciando sesión después del registro:', loginError?.message || loginError);
+      } catch {
+        // El usuario puede iniciar sesión manualmente si falla la redirección.
       }
 
       return;
     } catch (err: any) {
-      setErrorMessage(err?.message || 'Error de conexión con el servidor.');
+      setErrorMessage('No se pudo completar el registro. Verifica tus datos e inténtalo nuevamente.');
       setLoading(false);
     }
   };
