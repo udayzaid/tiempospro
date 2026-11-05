@@ -204,6 +204,7 @@ export default function AdminDashboard() {
     const metricsConnection = new signalR.HubConnectionBuilder()
       .withUrl(LIVE_HUB_URL, { withCredentials: true })
       .withAutomaticReconnect()
+      .configureLogging(signalR.LogLevel.None)
       .build();
 
     metricsConnection.on('LiveStats', (stats: LiveStatistics) => {
@@ -212,13 +213,6 @@ export default function AdminDashboard() {
       setPeakConnectedCount(stats.peakConnectedCount ?? 0);
       setLiveHistory(Array.isArray(stats.history) ? stats.history : []);
     });
-    metricsConnection.onreconnecting((error) => {
-      if (mounted) console.warn('[Admin] El Hub de métricas está reconectando:', error);
-    });
-    metricsConnection.onclose((error) => {
-      if (mounted) console.warn('[Admin] El Hub de métricas se desconectó:', error);
-    });
-
     const metricsStart = (async () => {
       let attempt = 0;
       while (mounted) {
@@ -228,7 +222,7 @@ export default function AdminDashboard() {
         } catch (error) {
           if (!mounted) return;
           const delay = Math.min(1000 * 2 ** attempt, 15000);
-          console.warn(`[Admin] Falló el inicio del Hub de métricas; nuevo intento en ${delay / 1000}s.`, error);
+
           attempt += 1;
           await new Promise((resolve) => setTimeout(resolve, delay));
         }
@@ -242,7 +236,7 @@ export default function AdminDashboard() {
           try {
             await metricsConnection.stop();
           } catch (error) {
-            console.error('[Admin] Error cerrando el Hub de métricas:', error);
+
           }
         })
         .catch(() => {
@@ -565,7 +559,7 @@ export default function AdminDashboard() {
                               try {
                                 window.open(item.watchUrl, '_blank', 'noopener,noreferrer');
                               } catch (error) {
-                                console.error('No se pudo abrir el video de YouTube:', error);
+
                               }
                             }
                           }}
