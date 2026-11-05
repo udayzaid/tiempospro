@@ -21,15 +21,15 @@
 .layoutRow {
   width: 100%;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: stretch;
-  gap: 35px;
+  gap: 20px;
   box-sizing: border-box;
 }
 .adColumn {
   display: none;
   width: 160px;
-  flex-shrink: 0;
+  flex: 0 0 160px;
   align-self: stretch;
 }
 .contentColumn {
