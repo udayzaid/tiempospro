@@ -30,7 +30,7 @@ export function ReelSection() {
       setHasNextPage(response.hasNextPage);
       setPageIndex(response.pageIndex);
     } catch (error) {
-      console.error('Error cargando los reels:', error);
+
     } finally {
       setLoading(false);
       setLoadingMore(false);
