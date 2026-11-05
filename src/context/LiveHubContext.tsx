@@ -54,7 +54,7 @@ export function LiveHubProvider({ children }: { children: ReactNode }) {
     const hub = new signalR.HubConnectionBuilder()
       .withUrl(CHAT_HUB_URL, { withCredentials: true })
       .withAutomaticReconnect()
-      .configureLogging(signalR.LogLevel.Information)
+      .configureLogging(signalR.LogLevel.Warning)
       .build();
 
     hub.on('LiveInfo', (payload: LiveInfo) => {
@@ -66,7 +66,6 @@ export function LiveHubProvider({ children }: { children: ReactNode }) {
         isLive: isLive === true || String(isLive).toLowerCase() === 'true',
       };
       setLiveInfo(info);
-      console.info('[Hub] LiveInfo recibido:', info);
     });
     hub.on('RecibeMessage', (message: SignalRChatMessage) => {
       chatListeners.current.forEach((listener) => listener(message));
@@ -101,7 +100,6 @@ export function LiveHubProvider({ children }: { children: ReactNode }) {
           if (!mounted) return;
           setConnected(true);
           setConnecting(false);
-          console.info('[Hub] Conectado a /hubs/chat.');
           return;
         } catch (error) {
           if (!mounted) return;
