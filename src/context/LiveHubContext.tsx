@@ -54,7 +54,7 @@ export function LiveHubProvider({ children }: { children: ReactNode }) {
     const hub = new signalR.HubConnectionBuilder()
       .withUrl(CHAT_HUB_URL, { withCredentials: true })
       .withAutomaticReconnect()
-      .configureLogging(signalR.LogLevel.Warning)
+      .configureLogging(signalR.LogLevel.None)
       .build();
 
     hub.on('LiveInfo', (payload: LiveInfo) => {
@@ -106,7 +106,7 @@ export function LiveHubProvider({ children }: { children: ReactNode }) {
           setConnected(false);
           setConnecting(true);
           const delay = Math.min(1000 * 2 ** attempt, 15000);
-          console.warn(`[Hub] Falló el inicio de /hubs/chat; nuevo intento en ${delay / 1000}s.`, error);
+
           attempt += 1;
           await new Promise((resolve) => setTimeout(resolve, delay));
         }
@@ -121,7 +121,7 @@ export function LiveHubProvider({ children }: { children: ReactNode }) {
         try {
           await hub.stop();
         } catch (error) {
-          console.error('[Hub] Error cerrando conexión:', error);
+
         }
       }).catch(() => {
         // Si start falla, no hay una conexión activa que cerrar.
