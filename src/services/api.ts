@@ -169,7 +169,7 @@ export const api = {
       if (!res.ok) throw new Error(`Status: ${res.status}`);
       return await res.text();
     } catch (error) {
-      console.error('Error en getPrimer:', error);
+
       return 'Servidor en línea';
     }
   },
@@ -222,7 +222,7 @@ export const api = {
           typeof videoUrl === 'string' && videoUrl.trim().length > 0,
       };
     } catch (error) {
-      console.error('Error en getStream:', error);
+
       return { url: '', raw: null, hasActiveStream: false };
     }
   },
@@ -260,7 +260,7 @@ export const api = {
         estado: String(data.estado ?? ''),
       };
     } catch (error) {
-      console.error('Error en getStreamCredentials:', error);
+
       return null;
     }
   },
@@ -339,7 +339,7 @@ export const api = {
 
       return [];
     } catch (error) {
-      console.error('Error cargando historial del chat:', error);
+
       throw error;
     }
   },
@@ -545,7 +545,7 @@ export const api = {
     const data = await res.json();
     return data as PagedResponse<NoticiaItem>;
   } catch (error) {
-    console.error('Error en getNoticias:', error);
+
     return null;
   }
 },
