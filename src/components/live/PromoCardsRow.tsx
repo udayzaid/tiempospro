@@ -33,7 +33,7 @@ export function PromoCardsRow() {
           setData(response);
         }
       } catch (error) {
-        console.error('Error cargando noticias:', error);
+
       } finally {
         setLoading(false);
       }
