@@ -53,7 +53,7 @@ type LiveStatistics = {
 
 const LIVE_HUB_URL = `${
   process.env.NEXT_PUBLIC_API_URL ||
-  'https://lostiemposapi20260817104248-avbkfhcfcucgf9e0.centralus-01.azurewebsites.net'
+  'https://172.104.24.41'
 }/hubs/live`;
 
 const clamp1 = { '--lines': 1 } as CSSProperties;
