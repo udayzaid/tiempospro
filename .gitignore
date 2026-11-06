@@ -1,5 +1,16 @@
-node_modules
-.next
-.env*.local
+# Dependencias
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Archivos del sistema
+.DS_Store
+# Next.js
 next-env.d.ts
-tsconfig.tsbuildinfo
