@@ -14,7 +14,7 @@ Esta configuración despliega únicamente el frontend Next.js. No despliega ni m
 Crear un archivo `.env` local (no subirlo a Git) con:
 
 ```dotenv
-NEXT_PUBLIC_API_URL=https://URL-ACTUAL-DE-LA-API
+NEXT_PUBLIC_API_URL=https://172.104.24.41
 NEXT_PUBLIC_OAUTH_CLIENT_ID=react-client
 ```
 
