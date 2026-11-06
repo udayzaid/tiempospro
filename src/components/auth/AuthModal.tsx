@@ -49,9 +49,23 @@ export function AuthModal({ visible, onClose, initialRegister = false }: AuthMod
     onClose();
   };
 
-  const toggleMode = () => {
-    setIsRegister(!isRegister);
+  // Si el usuario ya tiene cuenta, lo enviamos directamente al OAuth del backend.
+  // No mostramos una segunda pantalla/modal intermedio de inicio de sesión.
+  const toggleMode = async () => {
     setErrorMessage(null);
+
+    if (isRegister) {
+      setLoading(true);
+      try {
+        await startLogin();
+      } catch {
+        setErrorMessage('No se pudo iniciar el proceso de autenticación.');
+        setLoading(false);
+      }
+      return;
+    }
+
+    setIsRegister(true);
   };
 
   const handleSubmit = async () => {
@@ -63,7 +77,7 @@ export function AuthModal({ visible, onClose, initialRegister = false }: AuthMod
 
       try {
         await startLogin();
-      } catch (err: any) {
+      } catch {
         setErrorMessage('No se pudo iniciar el proceso de autenticación.');
         setLoading(false);
       }
@@ -95,8 +109,7 @@ export function AuthModal({ visible, onClose, initialRegister = false }: AuthMod
         PasswordConfir: passwordConfir,
       });
 
-      // REGISTRO EXITOSO: NO mostramos mensaje de "Cuenta creada".
-      // Cerramos el modal y enviamos directamente al sistema de autenticación.
+      // Registro exitoso: cerrar el modal y redirigir al OAuth del backend.
       resetForm();
       onClose();
       setLoading(false);
@@ -104,11 +117,11 @@ export function AuthModal({ visible, onClose, initialRegister = false }: AuthMod
       try {
         await startLogin();
       } catch {
-        // El usuario puede iniciar sesión manualmente si falla la redirección.
+        // No exponemos detalles internos del error al usuario.
       }
 
       return;
-    } catch (err: any) {
+    } catch {
       setErrorMessage('No se pudo completar el registro. Verifica tus datos e inténtalo nuevamente.');
       setLoading(false);
     }
@@ -227,7 +240,12 @@ export function AuthModal({ visible, onClose, initialRegister = false }: AuthMod
         </button>
 
         {/* CAMBIAR ENTRE LOGIN Y REGISTRO */}
-        <button type="button" onClick={toggleMode} className={`rn-pressable ${s.switchContainer}`}>
+        <button
+          type="button"
+          onClick={toggleMode}
+          className={`rn-pressable ${s.switchContainer}`}
+          disabled={loading}
+        >
           <span className={`rn-text ${s.switchText}`}>
             {isRegister ? '¿Ya tienes cuenta? ' : '¿Aún no tienes cuenta? '}
             <span className={`rn-text ${s.switchText} ${s.switchLink}`}>
