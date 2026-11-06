@@ -1,6 +1,6 @@
 import { refreshSession, logout } from '../components/auth/authService';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://lostiemposapi20260817104248-avbkfhcfcucgf9e0.centralus-01.azurewebsites.net';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://172.104.24.41';
 
 let refreshPromise: Promise<boolean> | null = null;
 
