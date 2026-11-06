@@ -5,7 +5,7 @@ import {
 } from './pkce';
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || 'https://lostiemposapi20260817104248-avbkfhcfcucgf9e0.centralus-01.azurewebsites.net';
+  process.env.NEXT_PUBLIC_API_URL || 'https://172.104.24.41';
 
 export const AUTHORIZE_ENDPOINT = `${BASE_URL}/connect/authorize`;
 export const EXCHANGE_ENDPOINT = `${BASE_URL}/api/auth/exchange`;

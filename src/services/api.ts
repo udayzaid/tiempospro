@@ -1,6 +1,6 @@
 import type { StreamCredentials } from '@/types/stream';
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://lostiemposapi20260817104248-avbkfhcfcucgf9e0.centralus-01.azurewebsites.net';
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://172.104.24.41';
 
 // Helper para obtener encabezados y Token de sesión.
 // Durante la migración mantenemos el token antiguo como compatibilidad,

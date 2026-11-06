@@ -5,7 +5,7 @@ import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, 
 import type { ChatHistoryMessage } from '@/services/api';
 import { useAuth } from '@/context/AuthContext';
 
-const CHAT_HUB_URL = `${process.env.NEXT_PUBLIC_API_URL || 'https://lostiemposapi20260817104248-avbkfhcfcucgf9e0.centralus-01.azurewebsites.net'}/hubs/chat`;
+const CHAT_HUB_URL = `${process.env.NEXT_PUBLIC_API_URL || 'https://172.104.24.41'}/hubs/chat`;
 
 export type LiveInfo = {
   urlVideo: string;
