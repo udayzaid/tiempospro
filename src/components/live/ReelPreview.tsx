@@ -4,24 +4,24 @@ import { useEffect, useRef, useState } from 'react';
 import s from './ReelPreview.module.css';
 
 interface ReelPreviewProps {
-  videoId: string;
+  playerUrl: string;
+  title: string;
   active: boolean;
   duration?: number;
 }
 
-export function ReelPreview({ videoId, active, duration = 5000 }: ReelPreviewProps) {
+export function ReelPreview({ playerUrl, title, active, duration = 5000 }: ReelPreviewProps) {
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [ready, setReady] = useState(false);
 
-  const sendMessage = (type: string, value?: number) => {
+  const sendMessage = (type: string) => {
     iframeRef.current?.contentWindow?.postMessage(
       {
         'x-tiktok-player': true,
         type,
-        ...(value !== undefined ? { value } : {}),
       },
-      '*'
+      'https://www.tiktok.com'
     );
   };
 
@@ -31,10 +31,7 @@ export function ReelPreview({ videoId, active, duration = 5000 }: ReelPreviewPro
         clearTimeout(timerRef.current);
         timerRef.current = null;
       }
-      if (ready) {
-        sendMessage('pause');
-        setReady(false);
-      }
+      if (ready) sendMessage('pause');
       return;
     }
 
@@ -54,6 +51,7 @@ export function ReelPreview({ videoId, active, duration = 5000 }: ReelPreviewPro
       }
       sendMessage('pause');
     };
+    // sendMessage utiliza la referencia estable del iframe.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, ready, duration]);
 
@@ -63,19 +61,26 @@ export function ReelPreview({ videoId, active, duration = 5000 }: ReelPreviewPro
     };
   }, []);
 
-  const playerUrl = `https://www.tiktok.com/player/v1/${videoId}?autoplay=1&muted=1&controls=0&description=0&music_info=0&rel=0&fullscreen_button=0&loop=0&play_button=0&volume_control=0`;
-
-  if (!active) return null;
+  const previewUrl = (() => {
+    const url = new URL(playerUrl);
+    url.searchParams.set('autoplay', '0');
+    url.searchParams.set('muted', '1');
+    url.searchParams.set('controls', '0');
+    url.searchParams.set('description', '0');
+    url.searchParams.set('music_info', '0');
+    url.searchParams.set('fullscreen_button', '0');
+    return url.toString();
+  })();
 
   return (
     <div className={`rn-view ${s.container}`}>
       <iframe
         ref={iframeRef}
-        src={playerUrl}
-        title="TikTok Reel preview"
+        src={previewUrl}
+        title={title}
         className={s.iframe}
-        allow="autoplay; fullscreen"
-        loading="lazy"
+        allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+        loading="eager"
         onLoad={() => setReady(true)}
       />
     </div>
