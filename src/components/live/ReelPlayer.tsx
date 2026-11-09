@@ -1,16 +1,32 @@
 import s from './ReelPlayer.module.css';
 
 interface ReelPlayerProps {
-  videoId: string;
+  playerUrl: string;
+  title: string;
 }
 
-export function ReelPlayer({ videoId }: ReelPlayerProps) {
-  const playerUrl = `https://www.tiktok.com/player/v1/${videoId}?controls=1&description=0&music_info=0&rel=0&fullscreen_button=1&loop=0`;
+export function ReelPlayer({ playerUrl, title }: ReelPlayerProps) {
+  const fullPlayerUrl = (() => {
+    const url = new URL(playerUrl);
+    url.searchParams.set('controls', '1');
+    url.searchParams.set('description', '1');
+    url.searchParams.set('music_info', '1');
+    url.searchParams.set('autoplay', '1');
+    url.searchParams.set('muted', '0');
+    url.searchParams.set('fullscreen_button', '1');
+    return url.toString();
+  })();
 
   return (
     <div className={`rn-view ${s.container}`}>
       <div className={`rn-view ${s.playerContainer}`}>
-        <iframe src={playerUrl} title="TikTok Reel" className={s.iframe} allow="fullscreen" />
+        <iframe
+          src={fullPlayerUrl}
+          title={title}
+          className={s.iframe}
+          allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+          allowFullScreen
+        />
       </div>
     </div>
   );
