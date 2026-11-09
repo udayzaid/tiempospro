@@ -73,6 +73,13 @@ export interface PagedResponse<T> {
   hasNextPage: boolean;
 }
 
+// Respuesta pública del endpoint GET /api/Reel.
+export interface ReelEmbedDto {
+  html: string;
+}
+
+// Se conserva el DTO anterior porque el panel administrativo utiliza
+// GET /api/Reel/All para listar, abrir y eliminar registros.
 export interface ReelGetDto {
   id?: number;
   link: string;
@@ -80,6 +87,53 @@ export interface ReelGetDto {
   portadaUrl: string;
   tiktokVideoId: string;
 }
+
+export interface ParsedTikTokReel {
+  videoId: string;
+  playerUrl: string;
+  title: string;
+}
+
+/**
+ * Extrae los datos del iframe que entrega el backend.
+ * Solo acepta reproductores oficiales de TikTok para evitar URLs arbitrarias.
+ */
+export const parseTikTokReel = (item: ReelEmbedDto): ParsedTikTokReel | null => {
+  if (!item || typeof item.html !== 'string') return null;
+
+  const srcMatch = item.html.match(/\\bsrc\\s*=\\s*(["'])(.*?)\\1/i);
+  if (!srcMatch?.[2]) return null;
+
+  const titleMatch = item.html.match(/\\btitle\\s*=\\s*(["'])(.*?)\\1/i);
+  const rawTitle = titleMatch?.[2] ?? 'Video de TikTok';
+  const title = rawTitle
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+
+  try {
+    const url = new URL(srcMatch[2]);
+    const videoMatch = url.pathname.match(/^\\/player\\/v1\\/(\\d+)\\/?$/);
+
+    if (
+      url.protocol !== 'https:' ||
+      url.hostname !== 'www.tiktok.com' ||
+      !videoMatch
+    ) {
+      return null;
+    }
+
+    return {
+      videoId: videoMatch[1],
+      playerUrl: url.toString(),
+      title,
+    };
+  } catch {
+    return null;
+  }
+};
 
 export interface StreamHistoryItem {
   broadcastId: string;
@@ -426,7 +480,7 @@ export const api = {
   },
 
   // GET /api/reels?pageIndex=1&pageSize=10
-  getReels: async (pageIndex = 1, pageSize = 10, requireAuth = false): Promise<PagedResponse<ReelGetDto>> => {
+  getReels: async (pageIndex = 1, pageSize = 10, requireAuth = false): Promise<PagedResponse<ReelEmbedDto>> => {
     const params = new URLSearchParams({
       pageIndex: pageIndex.toString(),
       pageSize: pageSize.toString(),
