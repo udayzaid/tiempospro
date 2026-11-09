@@ -2,14 +2,14 @@
 
 import { useState, type CSSProperties } from 'react';
 import { IoClose, IoPlay } from 'react-icons/io5';
-import type { ReelGetDto } from '@/services/api';
+import { parseTikTokReel, type ReelEmbedDto } from '@/services/api';
 import { Overlay } from '@/components/ui/Overlay';
 import { ReelPlayer } from './ReelPlayer';
 import { ReelPreview } from './ReelPreview';
 import s from './ReelCard.module.css';
 
 interface ReelCardProps {
-  item: ReelGetDto;
+  item: ReelEmbedDto;
 }
 
 const clamp2 = { '--lines': 2 } as CSSProperties;
@@ -17,6 +17,9 @@ const clamp2 = { '--lines': 2 } as CSSProperties;
 export function ReelCard({ item }: ReelCardProps) {
   const [modalVisible, setModalVisible] = useState(false);
   const [previewActive, setPreviewActive] = useState(false);
+  const reel = parseTikTokReel(item);
+
+  if (!reel) return null;
 
   const closeModal = () => {
     setModalVisible(false);
@@ -39,10 +42,7 @@ export function ReelCard({ item }: ReelCardProps) {
         onMouseEnter={() => setPreviewActive(true)}
         onMouseLeave={() => setPreviewActive(false)}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={item.portadaUrl} alt={item.titulo} className={s.thumbnail} loading="lazy" decoding="async" />
-
-        <ReelPreview videoId={item.tiktokVideoId} active={previewActive} duration={5000} />
+        <ReelPreview playerUrl={reel.playerUrl} title={reel.title} active={previewActive} duration={5000} />
 
         <div className={`rn-view ${s.overlay}`}>
           <div className={`rn-view ${s.playIconContainer}`}>
@@ -50,7 +50,7 @@ export function ReelCard({ item }: ReelCardProps) {
           </div>
 
           <span className={`rn-text rn-clamp ${s.title}`} style={clamp2}>
-            {item.titulo}
+            {reel.title}
           </span>
         </div>
       </div>
@@ -68,7 +68,7 @@ export function ReelCard({ item }: ReelCardProps) {
         </button>
 
         <div className={`rn-view ${s.playerWrapper}`}>
-          <ReelPlayer videoId={item.tiktokVideoId} />
+          <ReelPlayer playerUrl={reel.playerUrl} title={reel.title} />
         </div>
       </Overlay>
     </>
