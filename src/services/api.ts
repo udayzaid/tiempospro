@@ -101,10 +101,10 @@ export interface ParsedTikTokReel {
 export const parseTikTokReel = (item: ReelEmbedDto): ParsedTikTokReel | null => {
   if (!item || typeof item.html !== 'string') return null;
 
-  const srcMatch = item.html.match(/\\bsrc\\s*=\\s*(["'])(.*?)\\1/i);
+  const srcMatch = item.html.match(/\bsrc\s*=\s*(["'])(.*?)\1/i);
   if (!srcMatch?.[2]) return null;
 
-  const titleMatch = item.html.match(/\\btitle\\s*=\\s*(["'])(.*?)\\1/i);
+  const titleMatch = item.html.match(/\btitle\s*=\s*(["'])(.*?)\1/i);
   const rawTitle = titleMatch?.[2] ?? 'Video de TikTok';
   const title = rawTitle
     .replace(/&amp;/g, '&')
@@ -115,7 +115,7 @@ export const parseTikTokReel = (item: ReelEmbedDto): ParsedTikTokReel | null => 
 
   try {
     const url = new URL(srcMatch[2]);
-    const videoMatch = url.pathname.match(/^\\/player\\/v1\\/(\\d+)\\/?$/);
+    const videoMatch = url.pathname.match(/^\/player\/v1\/(\d+)\/?$/);
 
     if (
       url.protocol !== 'https:' ||
