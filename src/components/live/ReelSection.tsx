@@ -2,13 +2,13 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { FaTiktok } from 'react-icons/fa';
-import { api, type ReelGetDto } from '@/services/api';
+import { api, parseTikTokReel, type ReelEmbedDto } from '@/services/api';
 import { ReelCard } from './ReelCard';
 import s from './ReelSection.module.css';
 
 export function ReelSection() {
   const listRef = useRef<HTMLDivElement>(null);
-  const [reels, setReels] = useState<ReelGetDto[]>([]);
+  const [reels, setReels] = useState<ReelEmbedDto[]>([]);
   const [pageIndex, setPageIndex] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -125,9 +125,12 @@ export function ReelSection() {
 
       <div className={`rn-view ${s.listViewport}`}>
         <div ref={listRef} className={`rn-hscroll ${s.list}`} onScroll={handleScroll}>
-          {reels.map((item, index) => (
-            <ReelCard key={item.tiktokVideoId + '-' + index} item={item} />
-          ))}
+          {reels.map((item, index) => {
+            const reel = parseTikTokReel(item);
+            if (!reel) return null;
+
+            return <ReelCard key={reel.videoId || index} item={item} />;
+          })}
 
           {loadingMore ? (
             <div className={`rn-view ${s.footerLoader}`}>
