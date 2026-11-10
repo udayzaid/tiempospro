@@ -10,7 +10,7 @@ import {
   IoRefreshOutline,
   IoTrashOutline,
 } from 'react-icons/io5';
-import { api, type NoticiaItem, type PagedResponse, type ReelGetDto } from '@/services/api';
+import { api, parseTikTokReel, type NoticiaItem, type PagedResponse, type ReelGetDto } from '@/services/api';
 import { LiveTheme } from '@/constants/live-theme';
 import s from './ContentManagementPanel.module.css';
 
@@ -537,28 +537,38 @@ export function ContentManagementPanel() {
           <span className={`rn-text ${s.emptyText}`}>Todavía no hay noticias registradas.</span>
         )
       ) : reels.length ? (
-        reels.map((item, index) => (
-          <ItemRow
-            key={item.id ?? `${item.tiktokVideoId || item.link}-${index}`}
-            id={item.id}
-            imageUrl={item.portadaUrl}
-            placeholderIcon={<IoPlayCircleOutline size={19} color={LiveTheme.textMuted} />}
-            title={item.titulo || 'Reel sin título'}
-            description="Video corto publicado"
-            meta={item.link || 'Enlace no disponible'}
-            metaSingleLine
-            openLabel="Abrir reel"
-            deleteLabel={`Eliminar ${item.titulo || 'reel'}`}
-            confirmLabel={`¿Eliminar “${item.titulo || 'este reel'}”?`}
-            linkUrl={item.link}
-            confirming={confirmDeleteReelId === item.id}
-            deleting={deletingReelId === item.id}
-            onOpen={() => openLink(item.link)}
-            onToggleConfirm={() => setConfirmDeleteReelId(confirmDeleteReelId === item.id ? null : (item.id ?? null))}
-            onCancel={() => setConfirmDeleteReelId(null)}
-            onDelete={() => void handleDeleteReel(item)}
-          />
-        ))
+        reels.map((item, index) => {
+          const parsed = item.html ? parseTikTokReel({ html: item.html }) : null;
+          const title = item.titulo || parsed?.title || 'Reel sin título';
+          const link = item.link || parsed?.playerUrl || '';
+          const videoId = item.tiktokVideoId || parsed?.videoId || '';
+          return (
+            <ItemRow
+              key={item.id ?? (videoId || index)}
+              id={item.id}
+              imageUrl={item.portadaUrl}
+              placeholderIcon={<IoPlayCircleOutline size={19} color={LiveTheme.textMuted} />}
+              title={title}
+              description="Video corto publicado"
+              meta={link || 'Enlace no disponible'}
+              metaSingleLine
+              openLabel="Abrir reel"
+              deleteLabel={item.id == null ? 'Eliminación no disponible: falta ID del registro' : `Eliminar ${title}`}
+              confirmLabel={`¿Eliminar “${title}”?`}
+              linkUrl={link}
+              confirming={confirmDeleteReelId === item.id && item.id != null}
+              deleting={deletingReelId === item.id && item.id != null}
+              onOpen={() => openLink(link)}
+              onToggleConfirm={() => {
+                if (item.id != null) setConfirmDeleteReelId(confirmDeleteReelId === item.id ? null : item.id);
+              }}
+              onCancel={() => setConfirmDeleteReelId(null)}
+              onDelete={() => {
+                if (item.id != null) void handleDeleteReel(item);
+              }}
+            />
+          );
+        })
       ) : (
         <span className={`rn-text ${s.emptyText}`}>Todavía no hay reels registrados.</span>
       )}
