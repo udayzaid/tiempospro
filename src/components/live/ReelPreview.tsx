@@ -74,6 +74,11 @@ export function ReelPreview({ playerUrl, title, active, duration = 5000 }: ReelP
 
   return (
     <div className={`rn-view ${s.container}`}>
+      {!ready && (
+        <div className={`rn-view ${s.loading}`} aria-label="Cargando video de TikTok">
+          <span className="rn-spinner" />
+        </div>
+      )}
       <iframe
         ref={iframeRef}
         src={previewUrl}
