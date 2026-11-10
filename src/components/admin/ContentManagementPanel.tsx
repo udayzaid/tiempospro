@@ -28,6 +28,56 @@ const EMPTY_PAGINATION: Pagination = {
 const clamp1 = { '--lines': 1 } as CSSProperties;
 const clamp2 = { '--lines': 2 } as CSSProperties;
 
+
+
+/**
+ * Acepta un enlace de TikTok o el iframe oficial que entrega TikTok.
+ * El backend recibe el valor en el campo "url"; si llega un iframe,
+ * conservamos el HTML y normalizamos únicamente su atributo src.
+ */
+function normalizeTikTokReelInput(value: string): string | null {
+  const input = value.trim();
+  if (!input) return null;
+
+  const unwrapMarkdownUrl = (candidate: string) => {
+    const match = candidate.trim().match(/^\[(https?:\/\/[^\]]+)\]\((https?:\/\/[^)]+)\)$/i);
+    return match ? match[2] : candidate.trim();
+  };
+
+  const isTikTokUrl = (candidate: string, allowShortLink = true) => {
+    try {
+      const parsed = new URL(candidate);
+      const allowedHosts = allowShortLink
+        ? ['www.tiktok.com', 'm.tiktok.com', 'vm.tiktok.com', 'vt.tiktok.com']
+        : ['www.tiktok.com'];
+      if (parsed.protocol !== 'https:' || !allowedHosts.includes(parsed.hostname)) return false;
+
+      return (
+        /^\/player\/v1\/\d+\/?$/.test(parsed.pathname) ||
+        /^\/@[^/]+\/video\/\d+\/?$/.test(parsed.pathname) ||
+        (allowShortLink && ['vm.tiktok.com', 'vt.tiktok.com'].includes(parsed.hostname))
+      );
+    } catch {
+      return false;
+    }
+  };
+
+  if (/<iframe\b/i.test(input)) {
+    const srcMatch = input.match(/\bsrc\s*=\s*(["'])(.*?)\1/i);
+    if (!srcMatch?.[2]) return null;
+
+    const cleanSrc = unwrapMarkdownUrl(srcMatch[2]);
+    if (!isTikTokUrl(cleanSrc, false) || !/^https:\/\/www\.tiktok\.com\/player\/v1\/\d+\/?(?:\?.*)?$/i.test(cleanSrc)) {
+      return null;
+    }
+
+    return input.replace(srcMatch[2], cleanSrc);
+  }
+
+  const cleanUrl = unwrapMarkdownUrl(input);
+  return isTikTokUrl(cleanUrl) ? cleanUrl : null;
+}
+
 function formatDate(value: string) {
   const date = new Date(value);
   return Number.isNaN(date.getTime()) ? value || '—' : date.toLocaleDateString('es-BO');
@@ -251,16 +301,12 @@ export function ContentManagementPanel() {
   };
 
   const handleCreateReel = async () => {
-    const url = reelUrl.trim();
+    const url = normalizeTikTokReelInput(reelUrl);
     if (!url) {
-      setNotice({ kind: 'error', text: 'Ingresa la URL del reel.' });
-      return;
-    }
-
-    try {
-      new URL(url);
-    } catch {
-      setNotice({ kind: 'error', text: 'Ingresa una URL válida, incluyendo https://.' });
+      setNotice({
+        kind: 'error',
+        text: 'Pega un enlace de TikTok o el iframe oficial de inserción.',
+      });
       return;
     }
 
@@ -393,14 +439,14 @@ export function ContentManagementPanel() {
             </div>
             <div className="rn-view">
               <span className={`rn-text ${s.createTitle}`}>Agregar reel</span>
-              <span className={`rn-text ${s.createHelp}`}>Pega el enlace del video para registrarlo.</span>
+              <span className={`rn-text ${s.createHelp}`}>Pega un enlace de TikTok o el iframe de inserción.</span>
             </div>
           </div>
           <div className={`rn-view ${s.formRow}`}>
             <input
               value={reelUrl}
               onChange={(e) => setReelUrl(e.target.value)}
-              placeholder="https://www.tiktok.com/@.../video/..."
+              placeholder="Enlace de TikTok o código iframe..."
               autoCapitalize="none"
               autoCorrect="off"
               inputMode="url"
