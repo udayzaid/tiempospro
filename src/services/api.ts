@@ -82,10 +82,11 @@ export interface ReelEmbedDto {
 // GET /api/Reel/All para listar, abrir y eliminar registros.
 export interface ReelGetDto {
   id?: number;
-  link: string;
-  titulo: string;
-  portadaUrl: string;
-  tiktokVideoId: string;
+  html?: string;
+  link?: string;
+  titulo?: string;
+  portadaUrl?: string;
+  tiktokVideoId?: string;
 }
 
 export interface ParsedTikTokReel {
@@ -113,8 +114,12 @@ export const parseTikTokReel = (item: ReelEmbedDto): ParsedTikTokReel | null => 
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>');
 
+  // Algunos registros antiguos incluyen el src envuelto como enlace Markdown.
+  const markdownLink = srcMatch[2].match(/^\[(https?:\/\/[^\]]+)\]\((https?:\/\/[^)]+)\)$/i);
+  const cleanSrc = markdownLink ? markdownLink[2] : srcMatch[2];
+
   try {
-    const url = new URL(srcMatch[2]);
+    const url = new URL(cleanSrc);
     const videoMatch = url.pathname.match(/^\/player\/v1\/(\d+)\/?$/);
 
     if (
